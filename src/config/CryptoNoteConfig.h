@@ -17,37 +17,37 @@
 
 namespace CryptoNote {
     namespace parameters {
-        const uint64_t DIFFICULTY_TARGET                             = 30; // seconds
-        const uint64_t DIFFICULTY_TARGET_V2                          = 30; // Seconds
+        const uint64_t DIFFICULTY_TARGET                             = 60;                              // 1 Minute Block time
+        const uint64_t DIFFICULTY_TARGET_V2                          = DIFFICULTY_TARGET;
 
-        const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 1051200;
+        const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 0;
 
         const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
         const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
         const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
-        const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x281a;
-        const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 120;
+        const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x92cdf6c;                       // Base58 Prefix (GBITS)
+        const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 5;                               // Coin unlock after 5 blocks
         const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 6 * DIFFICULTY_TARGET;
 
         const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
 
-        const uint64_t MONEY_SUPPLY                                  = UINT64_C(42000000000); // 420 Million SPKY
+        const uint64_t MONEY_SUPPLY                                  = UINT64_C(42000000000);           // 420 Million SPKY
 
-        const uint32_t EMISSION_SPEED_FACTOR                         = 23;
-        const uint32_t EMISSION_SPEED_FACTOR_V2                      = 24;
+        const uint32_t EMISSION_SPEED_FACTOR                         = 20;
+        const uint32_t EMISSION_SPEED_FACTOR_V2                      = EMISSION_SPEED_FACTOR;
 
         static_assert(EMISSION_SPEED_FACTOR    <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
         static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
-        /* Height to swap to EMISSION_SPEED_FACTOR_V2 */
-        const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 1051200;
+        const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 0;
 
-        const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(50000000);
+        const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(100'000'000'00000000);  // 100 Million GBITS
 
-        /* PREMINE
-           ==========================
-           Swap:         500,000 SPKY
-           ========================== */
+        /* Premine
+           ================================
+           Developers:   1,000,000 GBITS (1%)
+           Tips:           100,000 GBITS (0.1%)
+           ================================ */
 
         const char GENESIS_COINBASE_TX_HEX[] = "017801ff00010002a40e83f44198285b3036a7ccef7ff155375b34c7cc8552ceea8721aefa8229752101aaad54aade16d9a4542e0efb3fdf32d86daadc16f1c07f1e363dd0e152a81def";
         static_assert(sizeof(GENESIS_COINBASE_TX_HEX)/sizeof(*GENESIS_COINBASE_TX_HEX) != 1, "GENESIS_COINBASE_TX_HEX must not be empty.");
@@ -64,18 +64,18 @@ namespace CryptoNote {
         const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
         const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 
-        const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 2;
+        const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
 
-        const uint64_t MINIMUM_FEE                                   = UINT64_C(100);
+        const uint64_t MINIMUM_FEE                                   = UINT64_C(10000);
 
         /* This section defines our minimum and maximum mixin counts required for transactions */
         const uint64_t MINIMUM_MIXIN_V0                              = 0;
         const uint64_t MAXIMUM_MIXIN_V0                              = 3;
 
         /* The mixin to use by default with zedwallet and turtle-service */
-        const uint64_t DEFAULT_MIXIN_V0                              = 3;
+        const uint64_t DEFAULT_MIXIN_V0                              = 1;
 
-        const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(0);
+        const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(10);
 
         const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 
@@ -119,7 +119,7 @@ namespace CryptoNote {
         /* Block heights we are going to have hard forks at */
         const uint64_t FORK_HEIGHTS[] =
         {
-            1051200,
+            100000,
         };
 
         /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
@@ -132,7 +132,7 @@ namespace CryptoNote {
         software will support the fork at 600,000 blocks.
 
         This will default to zero if the FORK_HEIGHTS array is empty, so you don't
-        need to change it manually. */
+        need to change it manually. */PDATE THIS VALUE WITH EVERY M
         const uint8_t CURRENT_FORK_INDEX = FORK_HEIGHTS_SIZE == 0 ? 0 : SOFTWARE_SUPPORTED_FORK_INDEX;
 
         static_assert(CURRENT_FORK_INDEX >= 0, "CURRENT FORK INDEX must be >= 0");
@@ -165,9 +165,9 @@ namespace CryptoNote {
     const uint64_t BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  100;    //by default, blocks count in blocks downloading
     const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-    const int      P2P_DEFAULT_PORT                              =  11420;
-    const int      RPC_DEFAULT_PORT                              =  11421;
-    const int      SERVICE_DEFAULT_PORT                          =  11422;
+    const int      P2P_DEFAULT_PORT                              =  25250;
+    const int      RPC_DEFAULT_PORT                              =  25251;
+    const int      SERVICE_DEFAULT_PORT                          =  25253;
 
     const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
     const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;
@@ -205,12 +205,10 @@ namespace CryptoNote {
     const std::string LICENSE_URL                                = "https://github.com/GalacticBits/GalacticBits/blob/master/LICENSE";
     const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
     {
-        {  0x20, 0x69, 0x6e, 0x73, 0x78, 0x28, 0x6c, 0x6c, 0x20, 0x67, 0x65, 0x6e, 0x74, 0x6f, 0x6f, 0x20  }
+        {  0x10, 0x70, 0x1b, 0x40, 0x10, 0x5a, 0x2d, 0x0c, 0x40, 0x12, 0x34, 0x56, 0x78, 0x90, 0x0a, 0x1b  }
     };
 
     const char* const SEED_NODES[] = {
-        "94.211.151.88:11420",  // SpookyPool.nl - MunchieHigh420
-        "142.93.239.206:11420", // Trinity SpookyPool.nl - MunchieHigh420
-        "94.214.85.66:11420"    // Gabcraftia
+        "142.93.239.206:25250",
     };
 } // CryptoNote
