@@ -49,7 +49,7 @@ namespace CryptoNote {
            Tips:           100,000 GBITS (0.1%)
            ================================ */
 
-        const char GENESIS_COINBASE_TX_HEX[] = "017801ff00010002a40e83f44198285b3036a7ccef7ff155375b34c7cc8552ceea8721aefa8229752101aaad54aade16d9a4542e0efb3fdf32d86daadc16f1c07f1e363dd0e152a81def";
+        const char GENESIS_COINBASE_TX_HEX[] = "010501ff0001808084fea6dee111027dbef3d6362ea45f555dfa0e9ada6368745b98bbb5f6ad6ca59fb95d64ec5215210138c579bf20cb0dd08228fad8370a476013220f9933e3b8ae621c4f2eb5535d98";
         static_assert(sizeof(GENESIS_COINBASE_TX_HEX)/sizeof(*GENESIS_COINBASE_TX_HEX) != 1, "GENESIS_COINBASE_TX_HEX must not be empty.");
 
         /* This is the unix timestamp of the first "mined" block (technically block 2, not the genesis block)
