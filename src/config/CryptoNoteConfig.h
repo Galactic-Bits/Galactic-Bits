@@ -31,7 +31,7 @@ namespace CryptoNote {
 
         const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
 
-        const uint64_t MONEY_SUPPLY                                  = UINT64_C(42000000000);           // 420 Million SPKY
+        const uint64_t MONEY_SUPPLY                                  = UINT64_C(100'000'000'00000000);  // 100 Million 
 
         const uint32_t EMISSION_SPEED_FACTOR                         = 20;
         const uint32_t EMISSION_SPEED_FACTOR_V2                      = EMISSION_SPEED_FACTOR;
@@ -41,7 +41,7 @@ namespace CryptoNote {
 
         const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 0;
 
-        const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(100'000'000'00000000);  // 100 Million GBITS
+        const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(1'100'000'00000000);    // 100 Million GBITS
 
         /* Premine
            ================================
@@ -55,7 +55,7 @@ namespace CryptoNote {
         /* This is the unix timestamp of the first "mined" block (technically block 2, not the genesis block)
         You can get this value by doing "print_block 2" in GalacticBitsd. It is used to know what timestamp
         to import from when the block height cannot be found in the node or the node is offline. */
-        const uint64_t GENESIS_BLOCK_TIMESTAMP                       = 1545261161;
+        const uint64_t GENESIS_BLOCK_TIMESTAMP                       = 1589720987;
 
         const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
         const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 100000; //size of block (bytes) after which reward for block calculated using block size
