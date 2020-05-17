@@ -46,7 +46,7 @@ namespace WalletConfig
                                                ::CRYPTONOTE_DISPLAY_DECIMAL_POINT;
 
     /* The length of a standard address for your coin */
-    const uint16_t standardAddressLength = 101;
+    const uint16_t standardAddressLength = 99;
 
     /* The length of an integrated address for your coin - It's the same as
        a normal address, but there is a paymentID included in there - since
