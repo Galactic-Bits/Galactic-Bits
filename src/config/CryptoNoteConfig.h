@@ -209,5 +209,6 @@ namespace CryptoNote {
 
     const char* const SEED_NODES[] = {
         "142.93.239.206:25250",
+        "94.214.85.66:25250"
     };
-} // CryptoNote
+}
